@@ -3,122 +3,164 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>G-Design - Mobilje të Kualitetit</title>
+    <title>G-Design - Fabrika e mobiljeve</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
-      /* Custom CSS for things that can't be done with Tailwind */
+      @keyframes goldGradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      .gold-gradient-text {
+        background: linear-gradient(90deg, #D4AF37 0%, #F5F5F5 50%, #D4AF37 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 200% auto;
+        animation: goldGradient 3s linear infinite;
+      }
+      
+      .gold-gradient-bg {
+        background: linear-gradient(90deg, #D4AF37 0%, #F5F5F5 50%, #D4AF37 100%);
+        background-size: 200% auto;
+        animation: goldGradient 3s linear infinite;
+      }
+      
+      .gold-border {
+        border: 2px solid #D4AF37;
+      }
+      
+      .black-white-text {
+        color: #000;
+        text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+      }
+      
+      .black-white-bg {
+        background: #fff;
+        color: #000;
+      }
+      
+      .black-border {
+        border: 2px solid #000;
+      }
+      
       .hero {
-        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-          url("kauqifaqjakryesore.jpg");
+        background: linear-gradient(rgba(16, 16, 16, 0.9), rgba(16, 16, 16, 0.9)),
+                     url("kauqifaqjakryesore.jpg");
         background-size: cover;
         background-position: center;
       }
-
+      
       .gallery-item {
-        transition: transform 0.3s ease;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
-
+      
       .gallery-item:hover {
-        transform: scale(1.03);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
       }
-
+      
       .sticky-nav {
         position: sticky;
         top: 0;
         z-index: 100;
         transition: all 0.3s ease;
+        background-color: rgba(16, 16, 16, 0.95);
       }
-
+      
       .sticky-nav.scrolled {
-        background-color: rgba(255, 255, 255, 0.95);
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        background-color: rgba(16, 16, 16, 0.98);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
       }
-
-      .sticky-nav.scrolled a {
-        color: #1a202c;
+      
+      .product-card {
+        transition: all 0.3s ease;
+        background: #fff;
+        border: 2px solid #000;
       }
-
-      .sticky-nav.scrolled a:hover {
-        color: #b7791f;
+      
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        border-color: #000;
       }
-
+      
+      .service-card {
+        background: rgba(25, 25, 25, 0.8);
+        border: 1px solid #D4AF37;
+        transition: all 0.3s ease;
+      }
+      
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+        border-color: #D4AF37;
+      }
+      
       .active-section {
-        color: #b7791f !important;
-        font-weight: 600;
+        color: #D4AF37 !important;
+        font-weight: bold;
       }
     </style>
   </head>
-  <body class="font-sans bg-gray-50">
+  <body class="font-sans bg-[#101010] text-gray-200">
     <!-- Sticky Navigation -->
-    <nav id="navbar" class="sticky-nav bg-amber-900 text-white py-4">
+    <nav id="navbar" class="sticky-nav py-4">
       <div class="container mx-auto px-4 flex justify-between items-center">
-       <a href="#">
+        <a href="#">
           <img src="gdesignlogo.png" alt="G-Design Logo" class="h-12 w-30" />
         </a>
         <!-- Mobile menu button -->
         <button id="mobile-menu-button" class="md:hidden focus:outline-none">
-          <i class="fas fa-bars text-2xl"></i>
+          <i class="fas fa-bars text-2xl gold-gradient-text"></i>
         </button>
 
         <!-- Desktop Menu -->
         <div class="hidden md:flex space-x-8">
-          <a href="#home" class="hover:text-amber-200 transition">Kryefaqja</a>
-          <a href="#about" class="hover:text-amber-200 transition"
-            >Rreth Nesh</a
-          >
-          <a href="#products" class="hover:text-amber-200 transition"
-            >Produktet</a
-          >
-          <a href="#services" class="hover:text-amber-200 transition"
-            >Shërbimet</a
-          >
-          <a href="#gallery" class="hover:text-amber-200 transition">Galeria</a>
-          <a href="#contact" class="hover:text-amber-200 transition">Kontakt</a>
+          <a href="#home" class="hover:text-[#D4AF37] transition gold-gradient-text">Kryefaqja</a>
+          <a href="#about" class="hover:text-[#D4AF37] transition gold-gradient-text">Rreth Nesh</a>
+          <a href="#products" class="hover:text-[#D4AF37] transition gold-gradient-text">Produktet</a>
+          <a href="#services" class="hover:text-[#D4AF37] transition gold-gradient-text">Shërbimet</a>
+          <a href="#gallery" class="hover:text-[#D4AF37] transition gold-gradient-text">Galeria</a>
+          <a href="#contact" class="hover:text-[#D4AF37] transition gold-gradient-text">Kontakt</a>
         </div>
       </div>
 
       <!-- Mobile Menu (hidden by default) -->
-      <div id="mobile-menu" class="hidden md:hidden bg-amber-800 px-4 py-2">
+      <div id="mobile-menu" class="hidden md:hidden bg-[#161616] px-4 py-2">
         <div class="flex flex-col space-y-3">
-          <a href="#home" class="hover:text-amber-200 transition">Kryefaqja</a>
-          <a href="#about" class="hover:text-amber-200 transition"
-            >Rreth Nesh</a
-          >
-          <a href="#products" class="hover:text-amber-200 transition"
-            >Produktet</a
-          >
-          <a href="#services" class="hover:text-amber-200 transition"
-            >Shërbimet</a
-          >
-          <a href="#gallery" class="hover:text-amber-200 transition">Galeria</a>
-          <a href="#contact" class="hover:text-amber-200 transition">Kontakt</a>
+          <a href="#home" class="hover:text-[#D4AF37] transition gold-gradient-text">Kryefaqja</a>
+          <a href="#about" class="hover:text-[#D4AF37] transition gold-gradient-text">Rreth Nesh</a>
+          <a href="#products" class="hover:text-[#D4AF37] transition gold-gradient-text">Produktet</a>
+          <a href="#services" class="hover:text-[#D4AF37] transition gold-gradient-text">Shërbimet</a>
+          <a href="#gallery" class="hover:text-[#D4AF37] transition gold-gradient-text">Galeria</a>
+          <a href="#contact" class="hover:text-[#D4AF37] transition gold-gradient-text">Kontakt</a>
         </div>
       </div>
     </nav>
 
     <!-- Hero Section -->
-    <section
-      id="home"
-      class="hero min-h-screen flex items-center justify-center text-white"
-    >
-      <div class="container mx-auto px-4 text-center">
-        <h1 class="text-4xl md:text-6xl font-bold mb-6">
-          Mobilje të Kualitetit për Shtëpinë Tuaj
+    <section id="home" class="hero min-h-screen flex items-center justify-center relative overflow-hidden">
+      <div class="absolute inset-0 bg-black opacity-50"></div>
+      <div class="container mx-auto px-4 text-center relative z-10">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 gold-gradient-text">
+          Everything your Home deserves :)
         </h1>
-        <p class="text-xl md:text-2xl mb-8">
+        <p class="text-xl md:text-2xl mb-8 text-white">
           Krijoni hapësirat më të rehatshme me dizajne unike dhe materiale të
           zgjedhura me kujdes
         </p>
         <div class="flex flex-col md:flex-row justify-center gap-4">
           <a
             href="#products"
-            class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg font-semibold transition"
+            class="gold-gradient-bg hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#F5F5F5] text-black px-8 py-3 rounded-lg font-semibold transition transform hover:scale-105"
             >Shiko Produktet</a
           >
           <a
             href="#contact"
-            class="bg-transparent border-2 border-white hover:bg-white hover:text-amber-900 text-white px-8 py-3 rounded-lg font-semibold transition"
+            class="bg-transparent border-2 border-[#D4AF37] hover:bg-[#D4AF37] hover:text-black text-white px-8 py-3 rounded-lg font-semibold transition transform hover:scale-105"
             >Na Kontaktoni</a
           >
         </div>
@@ -126,11 +168,9 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
+    <section id="about" class="py-20 bg-[#101010]">
       <div class="container mx-auto px-4">
-        <h2
-          class="text-3xl md:text-4xl font-bold text-center mb-12 text-amber-900"
-        >
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 gold-gradient-text">
           Rreth Nesh
         </h2>
 
@@ -139,20 +179,20 @@
             <img
               src="objekti.jpg"
               alt="Workshop"
-              class="rounded-lg shadow-xl w-full"
+              class="rounded-lg shadow-xl w-full gold-border"
             />
           </div>
           <div class="md:w-1/2">
-            <h3 class="text-2xl font-semibold mb-4 text-amber-800">
+            <h3 class="text-2xl font-semibold mb-4 gold-gradient-text">
               Përvoja Jonë në Prodhimin e Mobiljeve
             </h3>
-            <p class="text-gray-700 mb-4">
-            "G-DESIGN operon në tregun shqiptar që nga viti 1985,
-             duke ofruar mobilje cilësore për shtëpi dhe zyra.
-             Me një ekip profesionistësh të përkushtuar – artizanë dhe dizajnerë –
+            <p class="text-gray-300 mb-4">
+              "G-DESIGN operon në tregun shqiptar që nga viti 1985,
+              duke ofruar mobilje cilësore për shtëpi dhe zyra.
+              Me një ekip profesionistësh të përkushtuar – artizanë dhe dizajnerë –
               ne krijojmë mobilje që bashkojnë stilin modern me funksionalitetin praktik."
             </p>
-            <p class="text-gray-700 mb-6">
+            <p class="text-gray-300 mb-6">
               Ne përdorim vetëm materialet më të mira dhe më të qëndrueshme,
               duke garantuar që çdo produkt që del nga fabrika jonë të jetë i
               qëndrueshëm dhe i bukur për vite me radhë.
@@ -160,28 +200,28 @@
 
             <div class="grid grid-cols-2 gap-4">
               <div class="flex items-center">
-                <div class="bg-amber-100 p-3 rounded-full mr-4">
-                  <i class="fas fa-check-circle text-amber-600 text-xl"></i>
+                <div class="bg-[#D4AF37] p-3 rounded-full mr-4">
+                  <i class="fas fa-check-circle text-white text-xl"></i>
                 </div>
-                <span class="font-medium">40+ Vite Përvojë</span>
+                <span class="font-medium text-gray-300">40+ Vite Përvojë</span>
               </div>
               <div class="flex items-center">
-                <div class="bg-amber-100 p-3 rounded-full mr-4">
-                  <i class="fas fa-check-circle text-amber-600 text-xl"></i>
+                <div class="bg-[#D4AF37] p-3 rounded-full mr-4">
+                  <i class="fas fa-check-circle text-white text-xl"></i>
                 </div>
-                <span class="font-medium">Materiale Natyrale</span>
+                <span class="font-medium text-gray-300">Materiale Natyrale</span>
               </div>
               <div class="flex items-center">
-                <div class="bg-amber-100 p-3 rounded-full mr-4">
-                  <i class="fas fa-check-circle text-amber-600 text-xl"></i>
+                <div class="bg-[#D4AF37] p-3 rounded-full mr-4">
+                  <i class="fas fa-check-circle text-white text-xl"></i>
                 </div>
-                <span class="font-medium">Dizajne Unike</span>
+                <span class="font-medium text-gray-300">Dizajne Unike</span>
               </div>
               <div class="flex items-center">
-                <div class="bg-amber-100 p-3 rounded-full mr-4">
-                  <i class="fas fa-check-circle text-amber-600 text-xl"></i>
+                <div class="bg-[#D4AF37] p-3 rounded-full mr-4">
+                  <i class="fas fa-check-circle text-white text-xl"></i>
                 </div>
-                <span class="font-medium">Garancion 5 Vite</span>
+                <span class="font-medium text-gray-300">Garancion 5 Vite</span>
               </div>
             </div>
           </div>
@@ -190,11 +230,9 @@
     </section>
 
     <!-- Products Section -->
-    <section id="products" class="py-20 bg-gray-100">
+    <section id="products" class="py-20 bg-[#0a0a0a]">
       <div class="container mx-auto px-4">
-        <h2
-          class="text-3xl md:text-4xl font-bold text-center mb-12 text-amber-900"
-        >
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 gold-gradient-text">
           Produktet Tona
         </h2>
 
@@ -202,28 +240,28 @@
           <div class="inline-flex rounded-md shadow-sm" role="group">
             <button
               type="button"
-              class="product-category px-6 py-3 text-sm font-medium rounded-l-lg border border-amber-600 bg-amber-600 text-white"
+              class="product-category px-6 py-3 text-sm font-medium rounded-l-lg border border-[#D4AF37] bg-[#D4AF37] text-black"
               data-category="all"
             >
               Të Gjitha
             </button>
             <button
               type="button"
-              class="product-category px-6 py-3 text-sm font-medium border-t border-b border-amber-600 bg-white text-amber-600 hover:bg-amber-50"
+              class="product-category px-6 py-3 text-sm font-medium border-t border-b border-[#D4AF37] bg-[#161616] text-[#D4AF37] hover:bg-[#1a1a1a]"
               data-category="bedroom"
             >
               Dhoma Gjumi
             </button>
             <button
               type="button"
-              class="product-category px-6 py-3 text-sm font-medium border-t border-b border-amber-600 bg-white text-amber-600 hover:bg-amber-50"
+              class="product-category px-6 py-3 text-sm font-medium border-t border-b border-[#D4AF37] bg-[#161616] text-[#D4AF37] hover:bg-[#1a1a1a]"
               data-category="kitchen"
             >
               Kuzhina
             </button>
             <button
               type="button"
-              class="product-category px-6 py-3 text-sm font-medium rounded-r-lg border border-amber-600 bg-white text-amber-600 hover:bg-amber-50"
+              class="product-category px-6 py-3 text-sm font-medium rounded-r-lg border border-[#D4AF37] bg-[#161616] text-[#D4AF37] hover:bg-[#1a1a1a]"
               data-category="living"
             >
               Kënd Pushimi
@@ -234,7 +272,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Product 1 -->
           <div
-            class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition bedroom"
+            class="product-card rounded-lg overflow-hidden shadow-md hover:shadow-lg transition bedroom"
           >
             <img
               src="dhoma1.jpeg"
@@ -242,16 +280,16 @@
               class="w-full h-64 object-cover"
             />
             <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2 text-amber-800">
+              <h3 class="text-xl font-semibold mb-2 text-[#D4AF37]">
                 Dhoma Gjumit "Italiano"
               </h3>
-              <p class="text-gray-600 mb-4">
-               Dhome gjumi me nje dizajn te veqante.Perfshin gjerat ekstra si shtrat me i madh,komoden me pasqyre dhe kasetat
+              <p class="text-gray-700 mb-4">
+                Dhome gjumi me nje dizajn te veqante.Perfshin gjerat ekstra si shtrat me i madh,komoden me pasqyre dhe kasetat
               </p>
               <div class="flex justify-between items-center">
-                <span class="text-lg font-bold text-amber-600">1,200€</span>
+                <span class="text-lg font-bold text-[#D4AF37]">1,200€</span>
                 <button
-                  class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded transition"
+                  class="gold-gradient-bg hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#F5F5F5] text-black px-4 py-2 rounded transition transform hover:scale-105"
                 >
                   Porosit Tani
                 </button>
@@ -261,7 +299,7 @@
 
           <!-- Product 2 -->
           <div
-            class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition kitchen"
+            class="product-card rounded-lg overflow-hidden shadow-md hover:shadow-lg transition kitchen"
           >
             <img
               src="kuzhina1.jpg"
@@ -269,17 +307,17 @@
               class="w-full h-64 object-cover"
             />
             <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2 text-amber-800">
+              <h3 class="text-xl font-semibold mb-2 text-[#D4AF37]">
                 Kuzhina "Premium"
               </h3>
-              <p class="text-gray-600 mb-4">
-                 Kuzhinë e plotë me elemente të sipërme dhe të poshtme, me
+              <p class="text-gray-700 mb-4">
+                Kuzhinë e plotë me elemente të sipërme dhe të poshtme, me
                 sipërfaqe granit dhe pajisje të integruara.
               </p>
               <div class="flex justify-between items-center">
-                <span class="text-lg font-bold text-amber-600">499€ m²</span>
+                <span class="text-lg font-bold text-[#D4AF37]">499€ m²</span>
                 <button
-                  class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded transition"
+                  class="gold-gradient-bg hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#F5F5F5] text-black px-4 py-2 rounded transition transform hover:scale-105"
                 >
                   Porosit Tani
                 </button>
@@ -289,7 +327,7 @@
 
           <!-- Product 3 -->
           <div
-            class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition living"
+            class="product-card rounded-lg overflow-hidden shadow-md hover:shadow-lg transition living"
           >
             <img
               src="kauqi1.jpeg"
@@ -297,16 +335,16 @@
               class="w-full h-64 object-cover"
             />
             <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2 text-amber-800">
+              <h3 class="text-xl font-semibold mb-2 text-[#D4AF37]">
                 Kënd Pushimi "Luxury"
               </h3>
-              <p class="text-gray-600 mb-4">
-                 Kënd pushimi me stil italian – thjeshtësi, elegancë dhe relaks mesdhetar!
+              <p class="text-gray-700 mb-4">
+                Kënd pushimi me stil italian – thjeshtësi, elegancë dhe relaks mesdhetar!
               </p>
               <div class="flex justify-between items-center">
-                <span class="text-lg font-bold text-amber-600">2,800€</span>
+                <span class="text-lg font-bold text-[#D4AF37]">2,800€</span>
                 <button
-                  class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded transition"
+                  class="gold-gradient-bg hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#F5F5F5] text-black px-4 py-2 rounded transition transform hover:scale-105"
                 >
                   Porosit Tani
                 </button>
@@ -316,7 +354,7 @@
 
           <!-- Product 4 -->
           <div
-            class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition bedroom"
+            class="product-card rounded-lg overflow-hidden shadow-md hover:shadow-lg transition bedroom"
           >
             <img
               src="garderoba1.jpeg"
@@ -324,16 +362,16 @@
               class="w-full h-64 object-cover"
             />
             <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2 text-amber-800">
+              <h3 class="text-xl font-semibold mb-2 text-[#D4AF37]">
                 Garderobe "Eleganza"
               </h3>
-              <p class="text-gray-600 mb-4">
+              <p class="text-gray-700 mb-4">
                 Garderobe me dizajn modern, me hapësirë të madhe për ruajtje dhe pasqyrë të integruar.
               </p>
               <div class="flex justify-between items-center">
-                <span class="text-lg font-bold text-amber-600">850€</span>
+                <span class="text-lg font-bold text-[#D4AF37]">850€</span>
                 <button
-                  class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded transition"
+                  class="gold-gradient-bg hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#F5F5F5] text-black px-4 py-2 rounded transition transform hover:scale-105"
                 >
                   Porosit Tani
                 </button>
@@ -343,7 +381,7 @@
 
           <!-- Product 5 -->
           <div
-            class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition kitchen"
+            class="product-card rounded-lg overflow-hidden shadow-md hover:shadow-lg transition kitchen"
           >
             <img
               src="kuzhin2.jpeg"
@@ -351,17 +389,17 @@
               class="w-full h-64 object-cover"
             />
             <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2 text-amber-800">
+              <h3 class="text-xl font-semibold mb-2 text-[#D4AF37]">
                 Ishull Kuzhine "Premium"
               </h3>
-              <p class="text-gray-600 mb-4">
-                 Ishull kuzhine me sipërfaqe prej guri natyror, me hapësirë
+              <p class="text-gray-700 mb-4">
+                Ishull kuzhine me sipërfaqe prej guri natyror, me hapësirë
                 ruajtjeje dhe stol të integruar.
               </p>
               <div class="flex justify-between items-center">
-                <span class="text-lg font-bold text-amber-600">469€ m²</span>
+                <span class="text-lg font-bold text-[#D4AF37]">469€ m²</span>
                 <button
-                  class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded transition"
+                  class="gold-gradient-bg hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#F5F5F5] text-black px-4 py-2 rounded transition transform hover:scale-105"
                 >
                   Porosit Tani
                 </button>
@@ -371,7 +409,7 @@
 
           <!-- Product 6 -->
           <div
-            class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition living"
+            class="product-card rounded-lg overflow-hidden shadow-md hover:shadow-lg transition living"
           >
             <img
               src="tavolina1.jpg"
@@ -379,17 +417,17 @@
               class="w-full h-64 object-cover"
             />
             <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2 text-amber-800">
+              <h3 class="text-xl font-semibold mb-2 text-[#D4AF37]">
                 Tavolinë Darke "Woody"
               </h3>
-              <p class="text-gray-600 mb-4">
+              <p class="text-gray-700 mb-4">
                 Tavolinë darke prej druri të fortë me 6 karrige të rehatshme, në
                 dizajn modern dhe klasik.
               </p>
               <div class="flex justify-between items-center">
-                <span class="text-lg font-bold text-amber-600">1,100€</span>
+                <span class="text-lg font-bold text-[#D4AF37]">1,100€</span>
                 <button
-                  class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded transition"
+                  class="gold-gradient-bg hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#F5F5F5] text-black px-4 py-2 rounded transition transform hover:scale-105"
                 >
                   Porosit Tani
                 </button>
@@ -397,36 +435,28 @@
             </div>
           </div>
         </div>
-
-        
-
-       
       </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-white">
+    <section id="services" class="py-20 bg-[#101010]">
       <div class="container mx-auto px-4">
-        <h2
-          class="text-3xl md:text-4xl font-bold text-center mb-12 text-amber-900"
-        >
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 gold-gradient-text">
           Shërbimet Tona
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Service 1 -->
-          <div
-            class="bg-gray-50 rounded-lg p-8 shadow-md hover:shadow-lg transition"
-          >
+          <div class="service-card rounded-lg p-8">
             <div
-              class="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mb-6"
+              class="bg-[#D4AF37] w-16 h-16 rounded-full flex items-center justify-center mb-6"
             >
-              <i class="fas fa-ruler-combined text-amber-600 text-2xl"></i>
+              <i class="fas fa-ruler-combined text-white text-2xl"></i>
             </div>
-            <h3 class="text-xl font-semibold mb-3 text-amber-800">
+            <h3 class="text-xl font-semibold mb-3 text-[#D4AF37]">
               Dizajn i Personalizuar
             </h3>
-            <p class="text-gray-600">
+            <p class="text-gray-400">
               Ne ofrojmë zgjidhje të personalizuara për nevojat tuaja. Ekipi ynë
               i dizajnerëve do të krijojë mobilje unike që përshtaten me shijen
               dhe hapësirën tuaj.
@@ -434,18 +464,16 @@
           </div>
 
           <!-- Service 2 -->
-          <div
-            class="bg-gray-50 rounded-lg p-8 shadow-md hover:shadow-lg transition"
-          >
+          <div class="service-card rounded-lg p-8">
             <div
-              class="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mb-6"
+              class="bg-[#D4AF37] w-16 h-16 rounded-full flex items-center justify-center mb-6"
             >
-              <i class="fas fa-truck text-amber-600 text-2xl"></i>
+              <i class="fas fa-truck text-white text-2xl"></i>
             </div>
-            <h3 class="text-xl font-semibold mb-3 text-amber-800">
+            <h3 class="text-xl font-semibold mb-3 text-[#D4AF37]">
               Transport dhe Montim
             </h3>
-            <p class="text-gray-600">
+            <p class="text-gray-400">
               Ofrojmë shërbim transporti dhe montimi në të gjithë vendin. Ekipi
               ynë i specializuar do të sigurojë që mobiljet tuaja të vendosen në
               mënyrë të përsosur.
@@ -453,18 +481,16 @@
           </div>
 
           <!-- Service 3 -->
-          <div
-            class="bg-gray-50 rounded-lg p-8 shadow-md hover:shadow-lg transition"
-          >
+          <div class="service-card rounded-lg p-8">
             <div
-              class="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mb-6"
+              class="bg-[#D4AF37] w-16 h-16 rounded-full flex items-center justify-center mb-6"
             >
-              <i class="fas fa-couch text-amber-600 text-2xl"></i>
+              <i class="fas fa-couch text-white text-2xl"></i>
             </div>
-            <h3 class="text-xl font-semibold mb-3 text-amber-800">
+            <h3 class="text-xl font-semibold mb-3 text-[#D4AF37]">
               Riparime dhe Rindërtime
             </h3>
-            <p class="text-gray-600">
+            <p class="text-gray-400">
               Nëse keni mobilje të vjetra që dëshironi të rinovoni, ne ofrojmë
               shërbime riparimi dhe rindërtimi për t'i dhënë jetë të re
               mobiljeve tuaja të preferuara.
@@ -472,36 +498,32 @@
           </div>
 
           <!-- Service 4 -->
-          <div
-            class="bg-gray-50 rounded-lg p-8 shadow-md hover:shadow-lg transition"
-          >
+          <div class="service-card rounded-lg p-8">
             <div
-              class="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mb-6"
+              class="bg-[#D4AF37] w-16 h-16 rounded-full flex items-center justify-center mb-6"
             >
-              <i class="fas fa-paint-roller text-amber-600 text-2xl"></i>
+              <i class="fas fa-paint-roller text-white text-2xl"></i>
             </div>
-            <h3 class="text-xl font-semibold mb-3 text-amber-800">
+            <h3 class="text-xl font-semibold mb-3 text-[#D4AF37]">
               Zgjedhje të Personalizuara
             </h3>
-            <p class="text-gray-600">
-              Zgjidhni nga një gamë të gjerë  ngjyrash për të
+            <p class="text-gray-400">
+              Zgjidhni nga një gamë të gjerë ngjyrash për të
               personalizuar mobiljet tuaja sipas preferencave tuaja.
             </p>
           </div>
 
           <!-- Service 5 -->
-          <div
-            class="bg-gray-50 rounded-lg p-8 shadow-md hover:shadow-lg transition"
-          >
+          <div class="service-card rounded-lg p-8">
             <div
-              class="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mb-6"
+              class="bg-[#D4AF37] w-16 h-16 rounded-full flex items-center justify-center mb-6"
             >
-              <i class="fas fa-lightbulb text-amber-600 text-2xl"></i>
+              <i class="fas fa-lightbulb text-white text-2xl"></i>
             </div>
-            <h3 class="text-xl font-semibold mb-3 text-amber-800">
+            <h3 class="text-xl font-semibold mb-3 text-[#D4AF37]">
               Konsulencë për Dizajn
             </h3>
-            <p class="text-gray-600">
+            <p class="text-gray-400">
               Ekspertët tanë mund t'ju ndihmojnë të planifikoni hapësirat tuaja
               të jetesës, duke ofruar këshilla profesionale për dizajnin dhe
               funksionalitetin.
@@ -509,18 +531,16 @@
           </div>
 
           <!-- Service 6 -->
-          <div
-            class="bg-gray-50 rounded-lg p-8 shadow-md hover:shadow-lg transition"
-          >
+          <div class="service-card rounded-lg p-8">
             <div
-              class="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mb-6"
+              class="bg-[#D4AF37] w-16 h-16 rounded-full flex items-center justify-center mb-6"
             >
-              <i class="fas fa-shield-alt text-amber-600 text-2xl"></i>
+              <i class="fas fa-shield-alt text-white text-2xl"></i>
             </div>
-            <h3 class="text-xl font-semibold mb-3 text-amber-800">
+            <h3 class="text-xl font-semibold mb-3 text-[#D4AF37]">
               Garancion 5 Vjetësh
             </h3>
-            <p class="text-gray-600">
+            <p class="text-gray-400">
               Të gjitha produktet tona vijnë me garancion 5-vjeçar, duke
               siguruar që të keni qetësinë e mendjes për investimin tuaj.
             </p>
@@ -530,19 +550,15 @@
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-gray-100">
+    <section id="gallery" class="py-20 bg-[#0a0a0a]">
       <div class="container mx-auto px-4">
-        <h2
-          class="text-3xl md:text-4xl font-bold text-center mb-12 text-amber-900"
-        >
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 gold-gradient-text">
           Galeria Jonë
         </h2>
 
-        <div
-          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-        >
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           <!-- Gallery Item 1 -->
-          <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+          <div class="gallery-item rounded-lg overflow-hidden">
             <img
               src="kauq2.jpeg"
               alt="Modern Living Room"
@@ -551,7 +567,7 @@
           </div>
 
           <!-- Gallery Item 2 -->
-          <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+          <div class="gallery-item rounded-lg overflow-hidden">
             <img
               src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80"
               alt="Elegant Bedroom"
@@ -560,7 +576,7 @@
           </div>
 
           <!-- Gallery Item 3 -->
-          <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+          <div class="gallery-item rounded-lg overflow-hidden">
             <img
               src="kuzhina3.jpeg"
               alt="Kitchen Design"
@@ -569,7 +585,7 @@
           </div>
 
           <!-- Gallery Item 4 -->
-          <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+          <div class="gallery-item rounded-lg overflow-hidden">
             <img
               src="dhoma2.jpeg"
               alt="Dining Area"
@@ -578,7 +594,7 @@
           </div>
 
           <!-- Gallery Item 5 -->
-          <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+          <div class="gallery-item rounded-lg overflow-hidden">
             <img
               src="kauq3.jpg"
               alt="Office Furniture"
@@ -587,7 +603,7 @@
           </div>
 
           <!-- Gallery Item 6 -->
-          <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+          <div class="gallery-item rounded-lg overflow-hidden">
             <img
               src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80"
               alt="Modern Wardrobe"
@@ -596,7 +612,7 @@
           </div>
 
           <!-- Gallery Item 7 -->
-          <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+          <div class="gallery-item rounded-lg overflow-hidden">
             <img
               src="kuzhin4.jpeg"
               alt="Kids Room"
@@ -605,7 +621,7 @@
           </div>
 
           <!-- Gallery Item 8 -->
-          <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+          <div class="gallery-item rounded-lg overflow-hidden">
             <img
               src="garderoba2.jpeg"
               alt="Bathroom Furniture"
@@ -617,96 +633,93 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
+    <section id="contact" class="py-20 bg-[#101010]">
       <div class="container mx-auto px-4">
-        <h2
-          class="text-3xl md:text-4xl font-bold text-center mb-12 text-amber-900"
-        >
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 gold-gradient-text">
           Na Kontaktoni
         </h2>
 
         <div class="flex flex-col lg:flex-row gap-12">
           <!-- Contact Info -->
           <div class="lg:w-1/2">
-            <div class="bg-gray-50 p-8 rounded-lg shadow-md">
-              <h3 class="text-2xl font-semibold mb-6 text-amber-800">
+            <div class="bg-[#161616] p-8 rounded-lg shadow-md">
+              <h3 class="text-2xl font-semibold mb-6 text-[#D4AF37]">
                 Informacionet e Kontaktit
               </h3>
 
               <div class="space-y-6">
                 <div class="flex items-start">
-                  <div class="bg-amber-100 p-3 rounded-full mr-4">
-                    <i class="fas fa-map-marker-alt text-amber-600"></i>
+                  <div class="bg-[#D4AF37] p-3 rounded-full mr-4">
+                    <i class="fas fa-map-marker-alt text-white"></i>
                   </div>
                   <div>
-                    <h4 class="font-semibold text-gray-800">Adresa</h4>
-                    <p class="text-gray-600">
-                     Magjistrala Suhareke-Prizren, Suharekë, Kosovo
+                    <h4 class="font-semibold text-gray-300">Adresa</h4>
+                    <p class="text-gray-400">
+                      Magjistrala Suhareke-Prizren, Suharekë, Kosovo
                     </p>
                   </div>
                 </div>
 
                 <div class="flex items-start">
-                  <div class="bg-amber-100 p-3 rounded-full mr-4">
-                    <i class="fas fa-phone-alt text-amber-600"></i>
+                  <div class="bg-[#D4AF37] p-3 rounded-full mr-4">
+                    <i class="fas fa-phone-alt text-white"></i>
                   </div>
                   <div>
-                    <h4 class="font-semibold text-gray-800">Telefoni</h4>
-                    <p class="text-gray-600">+383 46 210 021</p>
-                    <p class="text-gray-600">+383 46 210 021 (WhatsApp)</p>
+                    <h4 class="font-semibold text-gray-300">Telefoni</h4>
+                    <p class="text-gray-400">+383 46 210 021</p>
+                    <p class="text-gray-400">+383 46 210 021 (WhatsApp)</p>
                   </div>
                 </div>
 
                 <div class="flex items-start">
-                  <div class="bg-amber-100 p-3 rounded-full mr-4">
-                    <i class="fas fa-envelope text-amber-600"></i>
+                  <div class="bg-[#D4AF37] p-3 rounded-full mr-4">
+                    <i class="fas fa-envelope text-white"></i>
                   </div>
                   <div>
-                    <h4 class="font-semibold text-gray-800">Email</h4>
-                    <p class="text-gray-600">gdesign.furniture@gmail.com</p>
-                    <p class="text-gray-600">gdesign.furniture@gmail.com</p>
+                    <h4 class="font-semibold text-gray-300">Email</h4>
+                    <p class="text-gray-400">gdesign.furniture@gmail.com</p>
+                    <p class="text-gray-400">gdesign.furniture@gmail.com</p>
                   </div>
                 </div>
 
                 <div class="flex items-start">
-                  <div class="bg-amber-100 p-3 rounded-full mr-4">
-                    <i class="fas fa-clock text-amber-600"></i>
+                  <div class="bg-[#D4AF37] p-3 rounded-full mr-4">
+                    <i class="fas fa-clock text-white"></i>
                   </div>
                   <div>
-                    <h4 class="font-semibold text-gray-800">Orari i Punës</h4>
-                    <p class="text-gray-600">
-                     E Hënë - E Premte: 08:00 - 19:00
+                    <h4 class="font-semibold text-gray-300">Orari i Punës</h4>
+                    <p class="text-gray-400">
+                      E Hënë - E Premte: 08:00 - 19:00
                     </p>
-                    <p class="text-gray-600">E Shtunë: 09:00 - 19:00</p>
-                    <p class="text-gray-600">E Dielë: Mbyllur</p>
+                    <p class="text-gray-400">E Shtunë: 09:00 - 19:00</p>
+                    <p class="text-gray-400">E Dielë: Mbyllur</p>
                   </div>
                 </div>
               </div>
 
               <div class="mt-8">
-                <h4 class="font-semibold text-gray-800 mb-4">
+                <h4 class="font-semibold text-gray-300 mb-4">
                   Na ndiqni në rrjetet sociale
                 </h4>
                 <div class="flex space-x-4">
                   <a
                     href="https://www.facebook.com/qendragdesign/"
-                    class="bg-amber-100 hover:bg-amber-200 w-10 h-10 rounded-full flex items-center justify-center transition"
+                    class="bg-[#D4AF37] hover:bg-[#F5F5F5] w-10 h-10 rounded-full flex items-center justify-center transition"
                   >
-                    <i class="fab fa-facebook-f text-amber-600"></i>
+                    <i class="fab fa-facebook-f text-white"></i>
                   </a>
                   <a
                     href="https://www.instagram.com/gdesign.ks"
-                    class="bg-amber-100 hover:bg-amber-200 w-10 h-10 rounded-full flex items-center justify-center transition"
+                    class="bg-[#D4AF37] hover:bg-[#F5F5F5] w-10 h-10 rounded-full flex items-center justify-center transition"
                   >
-                    <i class="fab fa-instagram text-amber-600"></i>
+                    <i class="fab fa-instagram text-white"></i>
                   </a>
                   <a
                     href="https://www.tiktok.com/@gdesign07"
-                    class="bg-amber-100 hover:bg-amber-200 w-10 h-10 rounded-full flex items-center justify-center transition"
+                    class="bg-[#D4AF37] hover:bg-[#F5F5F5] w-10 h-10 rounded-full flex items-center justify-center transition"
                   >
-                    <i class="fab fa-pinterest-p text-amber-600"></i>
+                    <i class="fab fa-pinterest-p text-white"></i>
                   </a>
-                  
                 </div>
               </div>
             </div>
@@ -714,28 +727,26 @@
             <!-- Map -->
             <div class="mt-8 rounded-lg overflow-hidden shadow-md">
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2979.836099839491!2d20.812347376143435!3d42.34004717119467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13539a23c7dd0f4f%3A0xa9be47d759054088!2sQendra%20e%20Mobileve%20G-Design!5e1!3m2!1sen!2s!4v1751149601943!5m2!1sen!2s" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                
-              </iframe>
             </div>
           </div>
 
           <!-- Contact Form -->
           <div class="lg:w-1/2">
-            <div class="bg-gray-50 p-8 rounded-lg shadow-md">
-              <h3 class="text-2xl font-semibold mb-6 text-amber-800">
+            <div class="bg-[#161616] p-8 rounded-lg shadow-md">
+              <h3 class="text-2xl font-semibold mb-6 text-[#D4AF37]">
                 Dërgo Mesazh
               </h3>
 
               <form id="contactForm" class="space-y-6">
                 <div>
-                  <label for="name" class="block text-gray-700 font-medium mb-2"
+                  <label for="name" class="block text-gray-300 font-medium mb-2"
                     >Emri i Plotë</label
                   >
                   <input
                     type="text"
                     id="name"
                     name="name"
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                    class="w-full px-4 py-2 bg-[#1a1a1a] border border-[#333] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37] text-gray-300"
                     required
                   />
                 </div>
@@ -743,14 +754,14 @@
                 <div>
                   <label
                     for="email"
-                    class="block text-gray-700 font-medium mb-2"
+                    class="block text-gray-300 font-medium mb-2"
                     >Email</label
                   >
                   <input
                     type="email"
                     id="email"
                     name="email"
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                    class="w-full px-4 py-2 bg-[#1a1a1a] border border-[#333] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37] text-gray-300"
                     required
                   />
                 </div>
@@ -758,27 +769,27 @@
                 <div>
                   <label
                     for="phone"
-                    class="block text-gray-700 font-medium mb-2"
+                    class="block text-gray-300 font-medium mb-2"
                     >Telefoni</label
                   >
                   <input
                     type="tel"
                     id="phone"
                     name="phone"
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                    class="w-full px-4 py-2 bg-[#1a1a1a] border border-[#333] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37] text-gray-300"
                   />
                 </div>
 
                 <div>
                   <label
                     for="subject"
-                    class="block text-gray-700 font-medium mb-2"
+                    class="block text-gray-300 font-medium mb-2"
                     >Subjekti</label
                   >
                   <select
                     id="subject"
                     name="subject"
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                    class="w-full px-4 py-2 bg-[#1a1a1a] border border-[#333] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37] text-gray-300"
                   >
                     <option value="general">Pyetje e Përgjithshme</option>
                     <option value="products">Informacion për Produkte</option>
@@ -791,21 +802,21 @@
                 <div>
                   <label
                     for="message"
-                    class="block text-gray-700 font-medium mb-2"
+                    class="block text-gray-300 font-medium mb-2"
                     >Mesazhi</label
                   >
                   <textarea
                     id="message"
                     name="message"
                     rows="5"
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                    class="w-full px-4 py-2 bg-[#1a1a1a] border border-[#333] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37] text-gray-300"
                     required
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  class="w-full bg-amber-600 hover:bg-amber-700 text-white py-3 px-6 rounded-lg font-semibold transition"
+                  class="w-full gold-gradient-bg hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#F5F5F5] text-black py-3 px-6 rounded-lg font-semibold transition transform hover:scale-105"
                 >
                   Dërgo Mesazhin
                 </button>
@@ -817,13 +828,13 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-amber-900 text-white py-12">
+    <footer class="bg-[#0a0a0a] text-gray-300 py-12 border-t border-[#333]">
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <!-- Column 1 -->
           <div>
-            <h3 class="text-xl font-bold mb-4">G-DESIGN</h3>
-            <p class="text-amber-100">
+            <h3 class="text-xl font-bold mb-4 gold-gradient-text">G-DESIGN</h3>
+            <p class="text-gray-400">
               Ne krijojmë mobilje të kualitetit për shtëpi dhe zyra, duke
               kombinuar traditën dhe modernitetin.
             </p>
@@ -831,47 +842,47 @@
 
           <!-- Column 2 -->
           <div>
-            <h3 class="text-xl font-bold mb-4">Linqe të Shpejta</h3>
+            <h3 class="text-xl font-bold mb-4 gold-gradient-text">Linqe të Shpejta</h3>
             <ul class="space-y-2">
               <li>
                 <a
                   href="#home"
-                  class="text-amber-100 hover:text-white transition"
+                  class="text-gray-400 hover:text-[#D4AF37] transition"
                   >Kryefaqja</a
                 >
               </li>
               <li>
                 <a
                   href="#about"
-                  class="text-amber-100 hover:text-white transition"
+                  class="text-gray-400 hover:text-[#D4AF37] transition"
                   >Rreth Nesh</a
                 >
               </li>
               <li>
                 <a
                   href="#products"
-                  class="text-amber-100 hover:text-white transition"
+                  class="text-gray-400 hover:text-[#D4AF37] transition"
                   >Produktet</a
                 >
               </li>
               <li>
                 <a
                   href="#services"
-                  class="text-amber-100 hover:text-white transition"
+                  class="text-gray-400 hover:text-[#D4AF37] transition"
                   >Shërbimet</a
                 >
               </li>
               <li>
                 <a
                   href="#gallery"
-                  class="text-amber-100 hover:text-white transition"
+                  class="text-gray-400 hover:text-[#D4AF37] transition"
                   >Galeria</a
                 >
               </li>
               <li>
                 <a
                   href="#contact"
-                  class="text-amber-100 hover:text-white transition"
+                  class="text-gray-400 hover:text-[#D4AF37] transition"
                   >Kontakt</a
                 >
               </li>
@@ -880,35 +891,35 @@
 
           <!-- Column 3 -->
           <div>
-            <h3 class="text-xl font-bold mb-4">Produktet</h3>
+            <h3 class="text-xl font-bold mb-4 gold-gradient-text">Produktet</h3>
             <ul class="space-y-2">
               <li>
-                <a href="#" class="text-amber-100 hover:text-white transition"
+                <a href="#" class="text-gray-400 hover:text-[#D4AF37] transition"
                   >Dhoma Gjumi</a
                 >
               </li>
               <li>
-                <a href="#" class="text-amber-100 hover:text-white transition"
+                <a href="#" class="text-gray-400 hover:text-[#D4AF37] transition"
                   >Kuzhina</a
                 >
               </li>
               <li>
-                <a href="#" class="text-amber-100 hover:text-white transition"
+                <a href="#" class="text-gray-400 hover:text-[#D4AF37] transition"
                   >Këndi Pushimi</a
                 >
               </li>
               <li>
-                <a href="#" class="text-amber-100 hover:text-white transition"
+                <a href="#" class="text-gray-400 hover:text-[#D4AF37] transition"
                   >Dhomë Ngrënie</a
                 >
               </li>
               <li>
-                <a href="#" class="text-amber-100 hover:text-white transition"
+                <a href="#" class="text-gray-400 hover:text-[#D4AF37] transition"
                   >Zona Pune</a
                 >
               </li>
               <li>
-                <a href="#" class="text-amber-100 hover:text-white transition"
+                <a href="#" class="text-gray-400 hover:text-[#D4AF37] transition"
                   >Mobilje për Fëmijë</a
                 >
               </li>
@@ -917,35 +928,35 @@
 
           <!-- Column 4 -->
           <div>
-            <h3 class="text-xl font-bold mb-4">Newsletter</h3>
-            <p class="text-amber-100 mb-4">
+            <h3 class="text-xl font-bold mb-4 gold-gradient-text">Newsletter</h3>
+            <p class="text-gray-400 mb-4">
               Regjistrohu për të marrë ofertat dhe lajmet më të fundit.
             </p>
             <form class="flex">
               <input
                 type="email"
                 placeholder="Emaili juaj"
-                class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-gray-800"
+                class="px-4 py-2 w-full rounded-l-lg focus:outline-none bg-[#1a1a1a] text-gray-300 border border-[#333]"
               />
               <button
                 type="submit"
-                class="bg-amber-600 hover:bg-amber-700 px-4 py-2 rounded-r-lg transition"
+                class="gold-gradient-bg hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#F5F5F5] px-4 py-2 rounded-r-lg transition text-black"
               >
                 <i class="fas fa-paper-plane"></i>
               </button>
             </form>
 
             <div class="mt-6">
-              <h4 class="font-semibold mb-2">Prano pagesa me:</h4>
+              <h4 class="font-semibold mb-2 text-gray-300">Prano pagesa me:</h4>
               <div class="flex space-x-2">
-                <div class="bg-white p-2 rounded">
-                  <i class="fab fa-cc-visa text-blue-800 text-xl"></i>
+                <div class="bg-[#1a1a1a] p-2 rounded border border-[#333]">
+                  <i class="fab fa-cc-visa text-blue-400 text-xl"></i>
                 </div>
-                <div class="bg-white p-2 rounded">
-                  <i class="fab fa-cc-mastercard text-red-600 text-xl"></i>
+                <div class="bg-[#1a1a1a] p-2 rounded border border-[#333]">
+                  <i class="fab fa-cc-mastercard text-red-400 text-xl"></i>
                 </div>
-                <div class="bg-white p-2 rounded">
-                  <i class="fab fa-cc-paypal text-blue-500 text-xl"></i>
+                <div class="bg-[#1a1a1a] p-2 rounded border border-[#333]">
+                  <i class="fab fa-cc-paypal text-blue-300 text-xl"></i>
                 </div>
               </div>
             </div>
@@ -953,16 +964,16 @@
         </div>
 
         <div
-          class="border-t border-amber-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
+          class="border-t border-[#333] mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
         >
-          <p class="text-amber-100">
+          <p class="text-gray-400">
             © 2025 G-Design. All rights reserved. Created and developed by ARDIS LUMI
           </p>
           <div class="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" class="text-amber-100 hover:text-white transition"
+            <a href="#" class="text-gray-400 hover:text-[#D4AF37] transition"
               >Politika e Privatësisë</a
             >
-            <a href="#" class="text-amber-100 hover:text-white transition"
+            <a href="#" class="text-gray-400 hover:text-[#D4AF37] transition"
               >Kushtet e Përdorimit</a
             >
           </div>
@@ -973,7 +984,7 @@
     <!-- Back to Top Button -->
     <button
       id="backToTop"
-      class="fixed bottom-8 right-8 bg-amber-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition opacity-0 invisible"
+      class="fixed bottom-8 right-8 gold-gradient-bg hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#F5F5F5] text-black w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition opacity-0 invisible transform hover:scale-110"
     >
       <i class="fas fa-arrow-up"></i>
     </button>
@@ -1070,13 +1081,13 @@
         button.addEventListener("click", () => {
           // Remove active class from all buttons
           categoryButtons.forEach((btn) => {
-            btn.classList.remove("bg-amber-600", "text-white");
-            btn.classList.add("bg-white", "text-amber-600");
+            btn.classList.remove("bg-[#D4AF37]", "text-black");
+            btn.classList.add("bg-[#161616]", "text-[#D4AF37]");
           });
 
           // Add active class to clicked button
-          button.classList.remove("bg-white", "text-amber-600");
-          button.classList.add("bg-amber-600", "text-white");
+          button.classList.remove("bg-[#161616]", "text-[#D4AF37]");
+          button.classList.add("bg-[#D4AF37]", "text-black");
 
           const category = button.dataset.category;
 
@@ -1115,5 +1126,3 @@
     </script>
   </body>
 </html>
-
-
